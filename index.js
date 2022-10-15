@@ -39,7 +39,7 @@ return stage1()
 function stage2() {
     console.log('WELCOME TO STAGE 2 \n '+"guess a number in the range from 1 to 10 ");
     let guess = prompt('guess your number: ')
-   let correctNumber = Math.floor(Math.random()*10)+1;
+   let correctNumber = Math.floor(Math.random()*3)+1;
 
    if (guess == correctNumber) {
         console.log('correcct!');
@@ -55,6 +55,28 @@ function stage2() {
        }
        else if(replay == "y") {
         return stage2();
+       }
+}
+}
+function stage3() {
+    console.log('WELCOME TO STAGE 3 \n '+"guess a number in the range from 1 to 10 ");
+    let guess = prompt('guess your number: ')
+   let correctNumber = Math.floor(Math.random()*4)+1;
+
+   if (guess == correctNumber) {
+        console.log('correcct!');
+   }
+    while (guess != correctNumber) {
+        console.log('you are wrong '+ name + " the correct answer is \n" + correctNumber);
+        const options = ["y", "n"]
+       replay = prompt('play again?')
+       if (replay == options[1]) {
+        console.log("hope you had a wonderful time bye...");
+        break;
+        
+       }
+       else if(replay == "y") {
+        return stage3();
        }
 }
 }
