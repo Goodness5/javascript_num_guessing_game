@@ -8,8 +8,15 @@
 //     readline.question('enter your username ', userName );
 
 const prompt = require("prompt-sync")();
-    var name = prompt('enter your username ')
-        console.log('name: '+ name);
+    const name = prompt('enter your username ')
+    const score = 0;
+    // while (name !== null) {
+    //     // console.log('a username is needed');
+    //     return stage1();
+        
+    // }
+    console.log('name: '+ name);
+    return stage1();
 
     function stage1() {
         console.log('WELCOME TO STAGE 1 \n '+"guess a number in the range from 1 to 2 ");
@@ -18,6 +25,8 @@ const prompt = require("prompt-sync")();
     
        if (guess == correctNumber) {
             console.log('correcct!');
+            x = score + 1
+            console.log('you have earned a point \n total points : ' +x);
             return stage2();
        }
         while (guess != correctNumber) {
@@ -33,18 +42,19 @@ const prompt = require("prompt-sync")();
            }
     }
 }
-return stage1()
+// return stage1()
 // console.log(stage1());
 
 function stage2() {
     console.log('WELCOME TO STAGE 2 \n '+"guess a number in the range from 1 to 3 ");
     let guess = prompt('guess your number: ')
    let correctNumber = Math.floor(Math.random()*3)+1;
-<<<<<<< HEAD
 
    if (guess == correctNumber) {
         console.log('correcct!');
-
+        console.log('correcct!');
+        x = score + 1
+        console.log('you have earned a point \n total points : ' +x);
         return stage3();
    }
     while (guess != correctNumber) {
@@ -65,8 +75,6 @@ function stage3() {
     console.log('WELCOME TO STAGE 3 \n '+"guess a number in the range from 1 to 4 ");
     let guess = prompt('guess your number: ')
    let correctNumber = Math.floor(Math.random()*4)+1;
-=======
->>>>>>> 6fde76026751bcbd188a90caaa1478e2f5d02402
 
    if (guess == correctNumber) {
         console.log('correcct!');
@@ -91,6 +99,9 @@ function stage3() {
    let correctNumber = Math.floor(Math.random()*4)+1;
 
    if (guess == correctNumber) {
+    console.log('correcct!');
+    x = score + 1
+    console.log('you have earned a point \n total points : ' +x);
         console.log('correcct!');
    }
     while (guess != correctNumber) {
@@ -101,7 +112,7 @@ function stage3() {
         console.log("hope you had a wonderful time bye...");
         break;
         
-       }
+       } 
        else if(replay == "y") {
         return stage3();
        }
