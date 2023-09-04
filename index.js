@@ -2,14 +2,43 @@ const prompt = require("prompt-sync")();
 
 function startGame() {
     console.log('Welcome to the Number Guessing Game!\n');
-    console.log('I have randomly selected a number between 1 and 10. Your task is to guess it!\n');
-    const randomNumber = generateRandomNumber(1, 10);
-    const guess = prompt('Enter your guess: ');
 
-    if (parseInt(guess) === randomNumber) {
-        console.log('Congratulations! You have won!');
-    } else {
-        console.log('You have lost! The random number generated was ' + randomNumber);
+    while (true) {
+        const randomNumber = generateRandomNumber(1, 10);
+        let attempts = 0;
+
+        while (true) {
+            const guess = prompt('Enter your guess (1-10) or "q" to quit: ');
+
+            if (guess.toLowerCase() === 'q') {
+                console.log('Thanks for playing! Goodbye.');
+                return; 
+            }
+
+            const parsedGuess = parseInt(guess);
+
+            if (isNaN(parsedGuess) || parsedGuess < 1 || parsedGuess > 10) {
+                console.log('Please enter a valid number between 1 and 10.');
+            } else {
+                attempts++;
+
+                if (parsedGuess === randomNumber) {
+                    console.log(`Congratulations! You've guessed the number ${randomNumber} in ${attempts} attempts.`);
+                    break; 
+                } else if (parsedGuess < randomNumber) {
+                    console.log('Try a higher number.');
+                } else {
+                    console.log('Try a lower number.');
+                }
+            }
+        }
+
+        const playAgain = prompt('Do you want to play again? (yes/no): ');
+
+        if (playAgain.toLowerCase() !== 'yes') {
+            console.log('Thanks for playing! Goodbye.');
+            return; 
+        }
     }
 }
 
@@ -18,6 +47,7 @@ function generateRandomNumber(min, max) {
 }
 
 startGame();
+
 
 
 
