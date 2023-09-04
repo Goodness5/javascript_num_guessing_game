@@ -5,7 +5,7 @@ function startGame() {
 
     while (true) {
         const randomNumber = generateRandomNumber(1, 10);
-        let attempts = 0;
+        
 
         while (true) {
             const guess = prompt('Enter your guess (1-10) or "q" to quit: ');
@@ -20,10 +20,10 @@ function startGame() {
             if (isNaN(parsedGuess) || parsedGuess < 1 || parsedGuess > 10) {
                 console.log('Please enter a valid number between 1 and 10.');
             } else {
-                attempts++;
+                
 
                 if (parsedGuess === randomNumber) {
-                    console.log(`Congratulations! You've guessed the number ${randomNumber} in ${attempts} attempts.`);
+                    console.log(`Congratulations! You've guessed the number ${randomNumber}.`);
                     break; 
                 } else if (parsedGuess < randomNumber) {
                     console.log('Try a higher number.');
