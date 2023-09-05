@@ -3,10 +3,7 @@ const prompt = require("prompt-sync")();
 function startGame() {
     console.log('Welcome to the Number Guessing Game!\n');
 
-    while (true) {
-        const randomNumber = generateRandomNumber(1, 10);
-        
-
+  
         while (true) {
             const guess = prompt('Enter your guess (1-10) or "q" to quit: ');
 
@@ -16,19 +13,19 @@ function startGame() {
             }
 
             const parsedGuess = parseInt(guess);
+					
+								const randomNumber = generateRandomNumber(1, 10);
 
             if (isNaN(parsedGuess) || parsedGuess < 1 || parsedGuess > 10) {
                 console.log('Please enter a valid number between 1 and 10.');
             } else {
-                
-
                 if (parsedGuess === randomNumber) {
                     console.log(`Congratulations! You've guessed the number ${randomNumber}.`);
                     break; 
                 } else if (parsedGuess < randomNumber) {
-                    console.log('Try a higher number.');
+                    console.log('wrong correct number is:', randomNumber, 'try higher');
                 } else {
-                    console.log('Try a lower number.');
+                    console.log('wrong correct number is:', randomNumber, 'try lower');
                 }
             }
         }
@@ -37,16 +34,15 @@ function startGame() {
 
         if (playAgain.toLowerCase() !== 'yes') {
             console.log('Thanks for playing! Goodbye.');
-            return; 
+            return;
         }
     }
-}
-
 function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 startGame();
+
 
 
 
